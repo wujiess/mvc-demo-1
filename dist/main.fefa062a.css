@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+::after {
+    box-sizing: border-box;
+}
+
+ul ol dl {
+    list-style: none;
+}.page>section {
+    border: 1px solid grey;
+}#app1 {
+    width: 50vw;
+    height: 50vh;
+    padding: 10px;
+}
+
+#app1>.actions>button {
+    width: 40px;
+    height: 22px;
+    padding: 2px 8px;
+}
