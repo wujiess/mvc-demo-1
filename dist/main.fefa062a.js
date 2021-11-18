@@ -11340,17 +11340,30 @@ var $square = (0, _jquery2.default)('#app3>.square');
 $square.on('click', function (e) {
     $square.toggleClass('active');
 });
-},{"./app3.css":"app3.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"app4.js":[function(require,module,exports) {
-'use strict';
+},{"./app3.css":"app3.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"app4.css":[function(require,module,exports) {
 
-require('./app2.css');
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../.config/yarn/global/node_modules/parcel/src/builtins/css-loader.js"}],"app4.js":[function(require,module,exports) {
+"use strict";
 
-var _jquery = require('jquery');
+require("./app4.css");
+
+var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./app2.css":"app2.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"main.js":[function(require,module,exports) {
+
+var $circle = (0, _jquery2.default)('#app4 .circle');
+
+$circle.on('mouseenter', function () {
+    $circle.addClass('active');
+}).on('mouseleave', function () {
+    $circle.removeClass('active');
+});
+},{"./app4.css":"app4.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"main.js":[function(require,module,exports) {
 'use strict';
 
 require('./reset.css');
@@ -11393,7 +11406,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57436' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49684' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

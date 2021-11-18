@@ -4,3 +4,16 @@
     border-radius: 50%;
     border: 1px solid red;
 }
+
+@keyframes change {
+    0% {
+        background: red;
+    }
+    100% {
+        background: blue;
+    }
+}
+
+#app4 .circle.active {
+    animation: change 1s infinite alternate linear;
+}
