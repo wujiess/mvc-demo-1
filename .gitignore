@@ -1,2 +1,4 @@
-/.cache/
-/node_modules/
+<<<<<<< HEAD
+node_modules
+dist
+>>>>>>> 66994aa2bd86661e2760deb68ff21f7b1f6f306b
