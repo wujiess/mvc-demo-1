@@ -179,6 +179,51 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../.config/yarn/global/node_modules/parcel/src/builtins/css-loader.js"}],"app1.js":[function(require,module,exports) {
+'use strict';
+
+require('./app1.css');
+
+var n = parseFloat(localStorage.getItem('n')) || 100;
+
+add1.onclick = function () {
+    n += 1;
+    render();
+    save();
+};
+
+minus1.onclick = function () {
+    n -= 1;
+    render();
+    save();
+};
+
+mul2.onclick = function () {
+    n *= 2;
+    render();
+    save();
+};
+
+divide2.onclick = function () {
+    n /= 2;
+    render();
+    save();
+};
+
+function render() {
+    number.innerHTML = n;
+};
+
+function save() {
+    localStorage.setItem('n', n.toString());
+}
+
+render();
+},{"./app1.css":"app1.css"}],"app2.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
 },{"_css_loader":"../../../.config/yarn/global/node_modules/parcel/src/builtins/css-loader.js"}],"../../../.config/yarn/global/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
@@ -11252,10 +11297,10 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{"process":"../../../.config/yarn/global/node_modules/process/browser.js"}],"app1.js":[function(require,module,exports) {
+},{"process":"../../../.config/yarn/global/node_modules/process/browser.js"}],"app2.js":[function(require,module,exports) {
 'use strict';
 
-require('./app1.css');
+require('./app2.css');
 
 var _jquery = require('jquery');
 
@@ -11263,32 +11308,49 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var n = 100;
+var $tabBar = (0, _jquery2.default)('.tab-bar');
+var $tabContent = (0, _jquery2.default)('.tab-content');
 
-add1.onclick = function () {
-    n += 1;
-    render();
-};
+$tabBar.on('click', 'li', function (e) {
+    var $li = (0, _jquery2.default)(e.currentTarget);
+    var index = $li.index();
+    $li.addClass('selected').siblings().removeClass("selected");
+    $tabContent.children().eq(index).addClass('active').siblings().removeClass('active');
+});
 
-minus1.onclick = function () {
-    n -= 1;
-    render();
-};
+$tabBar.children().eq(0).trigger('click');
+},{"./app2.css":"app2.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"app3.css":[function(require,module,exports) {
 
-mul2.onclick = function () {
-    n *= 2;
-    render();
-};
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../.config/yarn/global/node_modules/parcel/src/builtins/css-loader.js"}],"app3.js":[function(require,module,exports) {
+'use strict';
 
-divide2.onclick = function () {
-    n /= 2;
-    render();
-};
+require('./app3.css');
 
-function render() {
-    number.innerHTML = n;
-};
-},{"./app1.css":"app1.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"main.js":[function(require,module,exports) {
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var $square = (0, _jquery2.default)('#app3>.square');
+
+$square.on('click', function (e) {
+    $square.toggleClass('active');
+});
+},{"./app3.css":"app3.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"app4.js":[function(require,module,exports) {
+'use strict';
+
+require('./app2.css');
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./app2.css":"app2.css","jquery":"../node_modules/jquery/dist/jquery.js"}],"main.js":[function(require,module,exports) {
 'use strict';
 
 require('./reset.css');
@@ -11296,7 +11358,13 @@ require('./reset.css');
 require('./global.css');
 
 require('./app1.js');
-},{"./reset.css":"reset.css","./global.css":"global.css","./app1.js":"app1.js"}],"../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+require('./app2.js');
+
+require('./app3.js');
+
+require('./app4.js');
+},{"./reset.css":"reset.css","./global.css":"global.css","./app1.js":"app1.js","./app2.js":"app2.js","./app3.js":"app3.js","./app4.js":"app4.js"}],"../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -11325,7 +11393,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49309' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57436' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

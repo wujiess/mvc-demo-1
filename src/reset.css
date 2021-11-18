@@ -9,6 +9,8 @@
     box-sizing: border-box;
 }
 
-ul ol dl {
+ul,
+ol,
+dl {
     list-style: none;
 }
